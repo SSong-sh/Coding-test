@@ -8,7 +8,9 @@ public class array01 {
 		
 		Scanner scanner = new Scanner(System.in);
 		String str = scanner.nextLine();
-		String substrings [] = new String [str.length()];  //문자의 길이를 배열로 만들기
+		
+		
+		String substrings [] = new String [str.length()]; // 타입[] 변수 = new 타입[길이];
 		
 		/* String substring > 문자열 자르기 사용 > 시작 위치 인덱스 포함, 끝 인덱스 포함 x
 		 *  i = 0 substring의 1번 = baekjoon
