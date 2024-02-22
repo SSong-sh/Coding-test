@@ -12,7 +12,7 @@ public class array02 {
 	static int min =0;
 	static int n = 0;
 	static int m = 0;
-	static int[] dx = {0, 1, 0, -1}; // 왼쪽으로 넣는, 위로 넣는, 오른쪽으로 넣는, 아래로 넣는
+	static int[] dx = {0, 1, 0, -1}; // 0 : 가로로 이동 x / 1 : 오른쪽으로 이동, / -1 왼쪽으로 이동 
 	static int[] dy = {1, 0, -1, 0};
 	static int[][] array;
 	
@@ -52,11 +52,14 @@ public class array02 {
     		int temp = array[x][y]; // 마지막에 넣을 값 미리 빼놓음 [0][0]
     		
     		int idx = 0; // 우, 하, 좌, 상 방향으로 이동하며 반시계 방향으로 값 넣을 인덱스
-    		while(idx < 4) { // 왼쪽으로 넣는, 위로 넣는, 오른쪽으로 넣는, 아래로 넣는 연산을 차례로 수행
+    		while(idx < 4) { 
+    			
+    			// nx와 ny 변수는 다음 위치의 행과 열을 나타냅니다. 
     			int nx = x + dx[idx]; //0+dx[0]=0 > 0+0 = 0
     			int ny = y + dy[idx]; //0+dy[0]=1 > 0+1 =1
     			
-    			// 범위 안이라면
+    			// n-t와 m-t는 회전하는 그룹의 크기를 고려하여 범위를 조정
+    			// nx >= t && ny >= t: 다음 위치가 현재 회전하는 그룹의 시작 위치보다 크거나 같아야 합니다. 이는 외곽부터 안쪽으로 회전하는 것을 보장합니다.
     			if(nx < n-t && ny < m-t && nx >= t && ny >= t) { //nx < 4, ny <4, nx >=0 , ny >=0
     				array[x][y] = array[nx][ny]; //array[0][0] = array[0][1]
     				x = nx; //x =0
@@ -78,7 +81,7 @@ public class array02 {
     // 배열 출력 메서드
     static void printArray() {
     	for(int i=0; i<n; i++) {
-    		for(int j=0; j<n; j++) {
+    		for(int j=0; j<m; j++) {
     			System.out.print(array[i][j] + " ");
     		}
     		System.out.println();
