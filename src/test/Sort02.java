@@ -7,7 +7,6 @@ import java.io.InputStreamReader;
 public class Sort02 {
 	private static int[] newArr;
 	private static int[] copyArr;
-
 	// 수 정렬하기 02
 	public static void main(String[] args) throws NumberFormatException, IOException {
 
@@ -31,6 +30,7 @@ public class Sort02 {
 		}
 		
 		System.out.println(builder);
+
 	}
 
 	private static void mergeSort(int left, int right) {
@@ -52,7 +52,6 @@ public class Sort02 {
 
 			if (newArr[i] <= newArr[j]) {
 				copyArr[k++] = newArr[i++];
-			} else if (newArr[i] > newArr[j]) {
 				copyArr[k++] = newArr[j++];
 			}
 
@@ -60,7 +59,7 @@ public class Sort02 {
 
 		//이미 한쪽이 끝남
 		if (i > mid) {
-			while (j <= right) { //오른쪽을 다 담아줌
+			while (j <= right) { //오른쪽을 다 담아줌				
 				copyArr[k++] = newArr[j++];
 			}
 		} else {
