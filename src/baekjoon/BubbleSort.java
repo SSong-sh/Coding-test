@@ -1,4 +1,4 @@
-package test;
+package baekjoon;
 
 public class BubbleSort {
 
