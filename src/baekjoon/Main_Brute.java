@@ -25,16 +25,16 @@ public class Main_Brute {
 		}
 		
 		//N일에 얻을 수 있는 최대 수익
-		int[] High = new int[n];		
+		int[] dp = new int[n+1];		
 		
 		for (int i=0; i<n; i++) {
 			if (i + t[i] <= n) { 
-				High[i + t[i]] = Math.max(High[i + t[i]], High[i] + p[i]);
+				dp[i + t[i]] = Math.max(dp[i + t[i]], dp[i] + p[i]);
 			}
 
-			High[i+1] = Math.max(High[i+1], High[i]);
+			dp[i+1] = Math.max(dp[i+1], dp[i]);
 		}
-		System.out.println(High[n]);
+		System.out.println(dp[n]);
 		
 	}//main
 }
